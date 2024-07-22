@@ -5,9 +5,14 @@ from embedding import embed_text
 import json
 import config
 from langchain_community.llms import HuggingFaceEndpoint,HuggingFaceHub
+import os 
 
 def vectorDatabase(text):
-    apikey = config.pinecone_api
+    if 'PINECONE_API_KEY' not in os.environ:
+        apikey = config.pinecone_api
+    else:
+        apikey = os.getenv['PINECONE_API']
+
     pc = pinecone.Pinecone(api_key=apikey)
     index = pc.Index("datawarehouse-schema")
 
@@ -31,7 +36,10 @@ def getLlmResponse(datawarehouse, databases, data_volume, query_patterns, growth
     # )
 
     # Use for HuggingFace LLM
-    Hugging_api = config.hugghing_api
+    if 'HUGGING_API' not in os.environ:
+        Hugging_api = config.hugghing_api
+    else:
+        Hugging_api = os.getenv['HUGGING_API']
     llm = HuggingFaceEndpoint(
         repo_id="meta-llama/Meta-Llama-3-8B-Instruct",
         top_k=2,
