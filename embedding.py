@@ -2,6 +2,7 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from transformers import AutoTokenizer, AutoModel
 import pinecone
 import re
+import config
 
 def embed_text(text):
     model_name = 'sentence-transformers/all-MiniLM-L6-v2'
@@ -10,7 +11,8 @@ def embed_text(text):
 
 if __name__ == '__main__':
     # Connect to Pinecone
-    pc = pinecone.Pinecone(api_key="a90c542e-590b-4125-af8e-d3776c366653")
+    pinecone_api = config.pinecone_api
+    pc = pinecone.Pinecone(api_key=pinecone_api)
     index = pc.Index("datawarehouse-schema")
 
     # load the data

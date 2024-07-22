@@ -3,10 +3,11 @@ from langchain_community.llms import LlamaCpp
 import pinecone
 from embedding import embed_text
 import json
-import torch
+import config
+from langchain_community.llms import HuggingFaceEndpoint,HuggingFaceHub
 
 def vectorDatabase(text):
-    apikey = "a90c542e-590b-4125-af8e-d3776c366653"
+    apikey = config.pinecone_api
     pc = pinecone.Pinecone(api_key=apikey)
     index = pc.Index("datawarehouse-schema")
 
@@ -21,11 +22,22 @@ def vectorDatabase(text):
 
 def getLlmResponse(datawarehouse, databases, data_volume, query_patterns, growth_rate, performance_requirements, user_load, security_requirements):
     schemas = ['Hierarchical', 'Flat', 'Relational', 'Star', 'Snowflake', 'Network']
-    llm = LlamaCpp(
-        model_path='D:\LLMMyDatabase\models\mistral-7b-instruct-v0.1.Q5_K_M.gguf',
-        max_tokens=2000,
-        n_ctx=1024,
-        temperature=0.5
+    # Use for local LLM
+    # llm = LlamaCpp(
+    #     model_path='D:\LLMMyDatabase\models\mistral-7b-instruct-v0.1.Q5_K_M.gguf',
+    #     max_tokens=2000,
+    #     n_ctx=1024,
+    #     temperature=0.5
+    # )
+
+    # Use for HuggingFace LLM
+    Hugging_api = config.hugghing_api
+    llm = HuggingFaceEndpoint(
+        repo_id="meta-llama/Meta-Llama-3-8B-Instruct",
+        top_k=2,
+        temperature=0.1,
+        repetition_penalty=1.03,
+        huggingfacehub_api_token=Hugging_api
     )
 
     vector_res = vectorDatabase('Data Warehouse: ' + datawarehouse + ', Databases: ' + databases + ', Data Volume: ' + str(data_volume) + ', Query Patterns: ' + query_patterns + ', Growth Rate: ' + str(growth_rate) + ', Performance Requirements: ' + performance_requirements + ', User Load: ' + user_load + ', Security Requirements: ' + security_requirements)
@@ -41,7 +53,7 @@ def getLlmResponse(datawarehouse, databases, data_volume, query_patterns, growth
         vector_context = "No additional insights found from the vector database."
 
     prompt_template = """
-    [INST]
+    Youu are an architect designing a new data warehouse. You have the following requirements:
     1. The target data warehouse is named: {datawarehouse}.
     2. It will include the following databases: {databases}.
     3. Estimated data volume: {data_volume} TB.
@@ -50,9 +62,11 @@ def getLlmResponse(datawarehouse, databases, data_volume, query_patterns, growth
     6. Specific performance requirements: {performance_requirements}.
     7. Number of concurrent users expected: {user_load}.
     8. Specific security or compliance requirements: {security_requirements}.
-
-    These are some related examples. You must answer using this examples: {vector_context}
-    [/INST]
+    These are some related examples. You must answer using this examples: 
+    <context>
+    {vector_context}
+    </context>
+    Suggest the most suitable schema for this data warehouse.
     """
 
     input_variables = {
