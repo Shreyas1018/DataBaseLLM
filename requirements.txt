@@ -1,0 +1,9 @@
+sentence-transformers
+uvicorn
+langchain-community langchain-core
+ctransformers
+langchain
+llama-cpp-python
+streamlit
+pinecone
+langchain-huggingface

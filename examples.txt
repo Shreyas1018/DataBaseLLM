@@ -1,0 +1,480 @@
+{
+  Data Warehouse: Sales,
+  Database: CustomerDB, OrderDB, ProductDB,
+  Data Volume: 50,
+  Query Patterns: OLAP,
+  Growth Rate: 10,
+  performance_requirements: High-speed,
+  User Load: High,
+  Security Requirements: Highly sensitive data,
+  recommended_schema: Star,
+  reasoning: Star schema supports high-speed queries and is suitable for OLAP systems.
+}
+{
+  Data Warehouse: Marketing,
+  Database: CampaignDB, LeadsDB, AnalyticsDB,
+  Data Volume: 30,
+  Query Patterns: OLAP,
+  Growth Rate: 8,
+  performance_requirements: Medium-speed,
+  User Load: Medium,
+  Security Requirements: Standard security,
+  recommended_schema: Snowflake,
+  reasoning: Snowflake schema is efficient for query optimization and space-saving.
+}
+{
+  Data Warehouse: Finance,
+  Database: TransactionDB, LedgerDB, AuditDB,
+  Data Volume: 100,
+  Query Patterns: Mixed,
+  Growth Rate: 5,
+  performance_requirements: High-speed,
+  User Load: Very High,
+  Security Requirements: Highly sensitive data,
+  recommended_schema: Relational,
+  reasoning: Relational schema provides robustness for financial transactions and integrity.
+}
+{
+  Data Warehouse: HR,
+  Database: EmployeeDB, PayrollDB, BenefitsDB,
+  Data Volume: 20,
+  Query Patterns: OLTP,
+  Growth Rate: 7,
+  performance_requirements: Medium-speed,
+  User Load: High,
+  Security Requirements: Standard security,
+  recommended_schema: Flat,
+  reasoning: Flat schema is simple and suitable for OLTP operations.
+}
+{
+  Data Warehouse: Retail,
+  Database: InventoryDB, SalesDB, SupplierDB,
+  Data Volume: 60,
+  Query Patterns: OLAP,
+  Growth Rate: 12,
+  performance_requirements: High-speed,
+  User Load: High,
+  Security Requirements: Standard security,
+  recommended_schema: Star,
+  reasoning: Star schema is efficient for analyzing sales data.
+}
+{
+  Data Warehouse: Edu,
+  Database: StudentDB, CourseDB, FacultyDB,
+  Data Volume: 25,
+  Query Patterns: Mixed,
+  Growth Rate: 6,
+  performance_requirements: Medium-speed,
+  User Load: Medium,
+  Security Requirements: Standard security,
+  recommended_schema: Snowflake,
+  reasoning: Snowflake schema handles complex queries well in educational data.
+}
+{
+  Data Warehouse: Health,
+  Database: PatientDB, TreatmentDB, InsuranceDB,
+  Data Volume: 80,
+  Query Patterns: Mixed,
+  Growth Rate: 4,
+  performance_requirements: High-speed,
+  User Load: Very High,
+  Security Requirements: Highly sensitive data,
+  recommended_schema: Hierarchical,
+  reasoning: Hierarchical schema provides efficient data retrieval in healthcare systems.
+}
+{
+  Data Warehouse: Logistics,
+  Database: ShipmentDB, TrackingDB, WarehouseDB,
+  Data Volume: 40,
+  Query Patterns: OLAP,
+  Growth Rate: 9,
+  performance_requirements: High-speed,
+  User Load: High,
+  Security Requirements: Standard security,
+  recommended_schema: Star,
+  reasoning: Star schema is suitable for tracking and analyzing shipment data.
+}
+{
+  Data Warehouse: Gaming,
+  Database: PlayerDB, GameDB, PurchaseDB,
+  Data Volume: 35,
+  Query Patterns: OLTP,
+  Growth Rate: 15,
+  performance_requirements: High-speed,
+  User Load: Very High,
+  Security Requirements: Standard security,
+  recommended_schema: Relational,
+  reasoning: Relational schema supports real-time game data processing and transactions.
+}
+{
+  Data Warehouse: Media,
+  Database: ContentDB, UserDB, SubscriptionDB,
+  Data Volume: 45,
+  Query Patterns: Mixed,
+  Growth Rate: 10,
+  performance_requirements: High-speed,
+  User Load: High,
+  Security Requirements: Standard security,
+  recommended_schema: Star,
+  reasoning: Star schema supports efficient content management and user analytics.
+}
+{
+  datawarehouse: Logistics,
+  databases: ShipmentDB, DeliveryDB, FleetDB,
+  data_volume: 40,
+  query_patterns: OLTP,
+  growth_rate: 7,
+  performance_requirements: High-speed,
+  user_load: Medium,
+  security_requirements: Standard security,
+  recommended_schema: Star,
+  reasoning: Star schema provides efficient querying capabilities for logistics data.
+}
+{
+  datawarehouse: Healthcare,
+  databases: PatientDB, TreatmentDB, BillingDB,
+  data_volume: 80,
+  query_patterns: Mixed,
+  growth_rate: 5,
+  performance_requirements: High-speed,
+  user_load: Very High,
+  security_requirements: Highly sensitive data,
+  recommended_schema: Hierarchical,
+  reasoning: Hierarchical schema ensures efficient data retrieval and integrity in healthcare systems.
+}
+{
+  datawarehouse: Ecommerce,
+  databases: ProductDB, OrderDB, CustomerDB,
+  data_volume: 60,
+  query_patterns: OLAP,
+  growth_rate: 15,
+  performance_requirements: High-speed,
+  user_load: High,
+  security_requirements: Standard security,
+  recommended_schema: Snowflake,
+  reasoning: Snowflake schema helps in optimizing complex queries for e-commerce analytics.
+}
+{
+  datawarehouse: Telecom,
+  databases: SubscriberDB, CallDB, BillingDB,
+  data_volume: 90,
+  query_patterns: OLTP,
+  growth_rate: 8,
+  performance_requirements: Medium-speed,
+  user_load: Very High,
+  security_requirements: Standard security,
+  recommended_schema: Relational,
+  reasoning: Relational schema supports real-time data processing for telecom operations.
+}
+{
+  datawarehouse: Travel,
+  databases: BookingDB, CustomerDB, FlightDB,
+  data_volume: 45,
+  query_patterns: OLAP,
+  growth_rate: 10,
+  performance_requirements: High-speed,
+  user_load: High,
+  security_requirements: Standard security,
+  recommended_schema: Star,
+  reasoning: Star schema is ideal for analyzing travel booking and customer data.
+}
+{
+  datawarehouse: Insurance,
+  databases: PolicyDB, ClaimDB, CustomerDB,
+  data_volume: 70,
+  query_patterns: Mixed,
+  growth_rate: 6,
+  performance_requirements: High-speed,
+  user_load: High,
+  security_requirements: Highly sensitive data,
+  recommended_schema: Relational,
+  reasoning: Relational schema maintains data accuracy and supports complex queries in insurance.
+}
+{
+  datawarehouse: Retail,
+  databases: InventoryDB, SalesDB, SupplierDB,
+  data_volume: 60,
+  query_patterns: OLAP,
+  growth_rate: 12,
+  performance_requirements: High-speed,
+  user_load: High,
+  security_requirements: Standard security,
+  recommended_schema: Star,
+  reasoning: Star schema is efficient for analyzing sales data.
+}
+{
+  datawarehouse: Edu,
+  databases: StudentDB, CourseDB, FacultyDB,
+  data_volume: 25,
+  query_patterns: Mixed,
+  growth_rate: 6,
+  performance_requirements: Medium-speed,
+  user_load: Medium,
+  security_requirements: Standard security,
+  recommended_schema: Snowflake,
+  reasoning: Snowflake schema handles complex queries well in educational data.
+}
+{
+  datawarehouse: Manufacturing,
+  databases: ProductionDB, QualityDB, SupplierDB,
+  data_volume: 85,
+  query_patterns: OLTP,
+  growth_rate: 9,
+  performance_requirements: High-speed,
+  user_load: Medium,
+  security_requirements: Standard security,
+  recommended_schema: Star,
+  reasoning: Star schema supports high-speed querying for manufacturing data.
+}
+{
+  datawarehouse: FinancialServices,
+  databases: AccountDB, TransactionDB, CustomerDB,
+  data_volume: 100,
+  query_patterns: Mixed,
+  growth_rate: 7,
+  performance_requirements: High-speed,
+  user_load: Very High,
+  security_requirements: Highly sensitive data,
+  recommended_schema: Relational,
+  reasoning: Relational schema is robust and ensures data integrity in financial services.
+}
+{
+  datawarehouse: Manufacturing,
+  databases: ProductionDB, QualityControlDB, SupplyChainDB,
+  data_volume: 70,
+  query_patterns: OLAP,
+  growth_rate: 15,
+  performance_requirements: High-speed,
+  user_load: Medium,
+  security_requirements: Standard security,
+  recommended_schema: Star,
+  reasoning: Star schema is efficient for analyzing manufacturing and supply chain data.
+}
+{
+  datawarehouse: Ecommerce,
+  databases: UserDB, OrderDB, ProductDB, ReviewDB,
+  data_volume: 120,
+  query_patterns: Mixed,
+  growth_rate: 20,
+  performance_requirements: High-speed,
+  user_load: Very High,
+  security_requirements: Highly sensitive data,
+  recommended_schema: Snowflake,
+  reasoning: Snowflake schema supports complex queries and efficient data storage for a rapidly growing e-commerce platform.
+}
+{
+  datawarehouse: Energy,
+  databases: ConsumptionDB, SupplyDB, BillingDB,
+  data_volume: 200,
+  query_patterns: OLAP,
+  growth_rate: 5,
+  performance_requirements: High-speed,
+  user_load: High,
+  security_requirements: Highly sensitive data,
+  recommended_schema: Star,
+  reasoning: Star schema supports efficient analysis of energy consumption and supply data.
+}
+{
+  datawarehouse: Insurance,
+  databases: PolicyDB, ClaimsDB, CustomerDB,
+  data_volume: 150,
+  query_patterns: Mixed,
+  growth_rate: 8,
+  performance_requirements: Medium-speed,
+  user_load: High,
+  security_requirements: Highly sensitive data,
+  recommended_schema: Relational,
+  reasoning: Relational schema provides robust handling of policy and claims data with high data integrity.
+}
+{
+  datawarehouse: Hospitality,
+  databases: BookingDB, CustomerDB, FeedbackDB,
+  data_volume: 40,
+  query_patterns: OLTP,
+  growth_rate: 12,
+  performance_requirements: Medium-speed,
+  user_load: Medium,
+  security_requirements: Standard security,
+  recommended_schema: Flat,
+  reasoning: Flat schema is simple and suitable for real-time booking and customer feedback processing.
+}
+{
+  datawarehouse: Telecom,
+  databases: CallRecordsDB, CustomerDB, BillingDB,
+  data_volume: 300,
+  query_patterns: OLAP,
+  growth_rate: 6,
+  performance_requirements: High-speed,
+  user_load: Very High,
+  security_requirements: Highly sensitive data,
+  recommended_schema: Hierarchical,
+  reasoning: Hierarchical schema supports efficient data retrieval and analysis for large volumes of call records.
+}
+{
+  datawarehouse: Automotive,
+  databases: VehicleDB, ServiceDB, SalesDB,
+  data_volume: 90,
+  query_patterns: Mixed,
+  growth_rate: 10,
+  performance_requirements: Medium-speed,
+  user_load: High,
+  security_requirements: Standard security,
+  recommended_schema: Star,
+  reasoning: Star schema is efficient for analyzing vehicle sales and service data.
+}
+{
+  datawarehouse: Pharmaceutical,
+  databases: ResearchDB, ProductionDB, DistributionDB,
+  data_volume: 180,
+  query_patterns: OLAP,
+  growth_rate: 7,
+  performance_requirements: High-speed,
+  user_load: Medium,
+  security_requirements: Highly sensitive data,
+  recommended_schema: Snowflake,
+  reasoning: Snowflake schema supports complex queries and data optimization for pharmaceutical research and distribution.
+}
+{
+  datawarehouse: RealEstate,
+  databases: PropertyDB, SalesDB, CustomerDB,
+  data_volume: 55,
+  query_patterns: Mixed,
+  growth_rate: 9,
+  performance_requirements: Medium-speed,
+  user_load: Medium,
+  security_requirements: Standard security,
+  recommended_schema: Relational,
+  reasoning: Relational schema supports robust handling of property and sales data with high data integrity.
+}
+{
+  datawarehouse: Aviation,
+  databases: FlightDB, MaintenanceDB, CrewDB,
+  data_volume: 130,
+  query_patterns: OLAP,
+  growth_rate: 6,
+  performance_requirements: High-speed,
+  user_load: High,
+  security_requirements: Highly sensitive data,
+  recommended_schema: Star,
+  reasoning: Star schema supports efficient analysis of flight and maintenance data.
+}
+{
+  datawarehouse: Banking,
+  databases: AccountDB, TransactionDB, CustomerDB,
+  data_volume: 250,
+  query_patterns: Mixed,
+  growth_rate: 8,
+  performance_requirements: High-speed,
+  user_load: Very High,
+  security_requirements: Highly sensitive data,
+  recommended_schema: Relational,
+  reasoning: Relational schema provides robust handling of financial transactions and customer data with high data integrity.
+}
+{
+  datawarehouse: Aerospace,
+  databases: ComponentDB, ManufacturingDB, LogisticsDB,
+  data_volume: 100,
+  query_patterns: OLAP,
+  growth_rate: 10,
+  performance_requirements: Medium-speed,
+  user_load: High,
+  security_requirements: Highly sensitive data,
+  recommended_schema: Snowflake,
+  reasoning: Snowflake schema supports complex queries and efficient data storage for aerospace manufacturing and logistics.
+}
+{
+  datawarehouse: RetailBanking,
+  databases: LoanDB, CreditCardDB, CustomerDB,
+  data_volume: 300,
+  query_patterns: OLAP,
+  growth_rate: 5,
+  performance_requirements: High-speed,
+  user_load: Very High,
+  security_requirements: Highly sensitive data,
+  recommended_schema: Star,
+  reasoning: Star schema supports efficient analysis of loan and credit card data.
+}
+{
+  datawarehouse: Entertainment,
+  databases: ContentDB, UserDB, SubscriptionDB,
+  data_volume: 80,
+  query_patterns: Mixed,
+  growth_rate: 15,
+  performance_requirements: High-speed,
+  user_load: High,
+  security_requirements: Standard security,
+  recommended_schema: Star,
+  reasoning: Star schema supports efficient content management and user analytics.
+}
+{
+  datawarehouse: Legal,
+  databases: CaseDB, DocumentDB, ClientDB,
+  data_volume: 60,
+  query_patterns: OLAP,
+  growth_rate: 7,
+  performance_requirements: Medium-speed,
+  user_load: Medium,
+  security_requirements: Highly sensitive data,
+  recommended_schema: Hierarchical,
+  reasoning: Hierarchical schema supports efficient data retrieval and analysis for legal case management.
+}
+{
+  datawarehouse: Fashion,
+  databases: InventoryDB, SalesDB, CustomerDB,
+  data_volume: 45,
+  query_patterns: OLTP,
+  growth_rate: 12,
+  performance_requirements: Medium-speed,
+  user_load: Medium,
+  security_requirements: Standard security,
+  recommended_schema: Flat,
+  reasoning: Flat schema is simple and suitable for real-time sales and inventory processing.
+}
+{
+  datawarehouse: Mining,
+  databases: ProductionDB, LogisticsDB, SafetyDB,
+  data_volume: 150,
+  query_patterns: OLAP,
+  growth_rate: 5,
+  performance_requirements: High-speed,
+  user_load: High,
+  security_requirements: Highly sensitive data,
+  recommended_schema: Star,
+  reasoning: Star schema is efficient for analyzing mining production and logistics data.
+}
+{
+  datawarehouse: Agriculture,
+  databases: CropDB, WeatherDB, MarketDB,
+  data_volume: 90,
+  query_patterns: Mixed,
+  growth_rate: 10,
+  performance_requirements: Medium-speed,
+  user_load: Medium,
+  security_requirements: Standard security,
+  recommended_schema: Snowflake,
+  reasoning: Snowflake schema supports complex queries and efficient data storage for agricultural data.
+}
+{
+  datawarehouse: Logistics,
+  databases: ShipmentDB, TrackingDB, WarehouseDB,
+  data_volume: 120,
+  query_patterns: OLAP,
+  growth_rate: 8,
+  performance_requirements: High-speed,
+  user_load: High,
+  security_requirements: Standard security,
+  recommended_schema: Star,
+  reasoning: Star schema is suitable for tracking and analyzing shipment data.
+}
+{
+  datawarehouse: Tourism,
+  databases: BookingDB, CustomerDB, DestinationDB,
+  data_volume: 55,
+  query_patterns: OLTP,
+  growth_rate: 11,
+  performance_requirements: Medium-speed,
+  user_load: Medium,
+  security_requirements: Standard security,
+  recommended_schema: Relational,
+  reasoning: Relational schema supports robust handling of booking and customer data with high data integrity.
+}
