@@ -9,6 +9,7 @@ import os
 
 def vectorDatabase(text):
     if 'PINECONE_API_KEY' not in os.environ:
+        print("Using config file for pinecone api")
         apikey = config.pinecone_api
     else:
         apikey = os.getenv['PINECONE_API']
@@ -38,6 +39,7 @@ def getLlmResponse(datawarehouse, databases, data_volume, query_patterns, growth
     # Use for HuggingFace LLM
     if 'HUGGING_API' not in os.environ:
         Hugging_api = config.hugghing_api
+        print("Using config file for hugging face api")
     else:
         Hugging_api = os.getenv['HUGGING_API']
     llm = HuggingFaceEndpoint(
