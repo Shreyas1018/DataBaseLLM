@@ -2,8 +2,8 @@ sentence-transformers
 uvicorn
 langchain-community
 ctransformers
-langchain
-llama-cpp-python
+llama-cpp-python==0.2.80
 streamlit
 pinecone
 langchain-huggingface
+embedding
