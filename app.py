@@ -8,7 +8,7 @@ from langchain_community.llms import HuggingFaceEndpoint,HuggingFaceHub
 import os 
 
 def vectorDatabase(text):
-    if 'PINECONE_API_KEY' not in os.environ:
+    if 'PINECONE_API' not in os.environ:
         print("Using config file for pinecone api")
         apikey = config.pinecone_api
     else:
