@@ -40,7 +40,7 @@ def getLlmResponse(datawarehouse, databases, data_volume, query_patterns, growth
     # Use for HuggingFace LLM
     if 'HUGGING_API' not in os.environ:
         print("Using config file for hugging face api")
-        Hugging_api = config.hugghing_api
+        Hugging_api = config.hugging_api
     else:
         print("Using env for hugging api")
         Hugging_api = os.getenv['HUGGING_API']
