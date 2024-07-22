@@ -11,8 +11,14 @@ def embed_text(text):
 
 if __name__ == '__main__':
     # Connect to Pinecone
-    pinecone_api = config.pinecone_api
-    pc = pinecone.Pinecone(api_key=pinecone_api)
+    if 'PINECONE_API' not in os.environ:
+        print("Using config file for pinecone api")
+        apikey = config.pinecone_api
+    else:
+        print("Using env for pinecone api")
+        apikey = os.getenv('PINECONE_API')
+        
+    pc = pinecone.Pinecone(api_key=apikey)
     index = pc.Index("datawarehouse-schema")
 
     # load the data
